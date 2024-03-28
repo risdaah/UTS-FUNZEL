@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNZLE | Let's Start A Journey</title>
+</head>
+
+<style>
+    @font-face {
+        font-family: 'Space';
+        src: url('fonts/spacerangerbold.ttf') format('truetype');
+    }
+
+    body{
+        overflow-x: hidden; /* menghilangkan scroll bawah */
+        overflow-y: hidden; /* menghilangkan scroll samping */    
+        font-family: 'Space', sans-serif;
+        opacity: 0.5; /* Mulai dengan opasitas 0 */
+        transition: opacity 0.2s linear;  /* Efek transisi opasitas selama 0.5 detik */
+    }
+
+    body.loaded {
+        opacity: 1; /* Setelah halaman dimuat, opasitas diubah menjadi 1 */
+    }
+
+    .back{
+        position: relative;
+    }
+
+    .gambar {
+        position: fixed; /* Mengatur posisi absolut untuk gambar */
+        top: 0; /* Menempatkan gambar di bagian atas */
+        left: 0; /* Menempatkan gambar di bagian kiri */
+    }
+
+    .gambar:nth-child(3) {
+        z-index: 1; /* Mengatur semua gambar agar tumpuk di atas gambar pertama */
+    }
+
+    #sky{
+        width: 100vw; /* Lebar gambar 100% dari lebar viewport */
+        height: auto; /* Tinggi disesuaikan agar tidak terdistorsi */
+    }
+
+    #stone {
+        position: absolute; /* Mengatur posisi absolut untuk gambar */
+        width: 100vw; /* Lebar gambar 100% dari lebar viewport */
+        height: auto; /* Tinggi disesuaikan agar tidak terdistorsi */
+        left: 50%; /* Posisi horizontal di tengah */
+        transform: translate(-50%, 10%); /* Pusatkan gambar horizontal dan geser ke bawah 10% */
+        bottom: 0; /* Posisi di bagian bawah */        
+    }
+
+    #judul{
+        position: absolute;
+        width: 40vw; /* Lebar judul setengah dari lebar viewport */
+        left: 50%; /* Posisi horizontal di tengah */
+        transform: translateX(-50%); /* Pusatkan judul horizontal */
+        bottom: 10vh; /* Posisi di bagian bawah dengan jarak 10% dari tinggi viewport */
+        align-items: center; /* Posisi horizontal di tengah */
+        margin-top: 100px;
+    }
+
+    .teks{
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;        
+        z-index: 2; /* Menempatkan teks di atas gambar */   
+        line-height: 0.2;    
+        cursor: pointer;  
+    }
+
+    .button{
+        color: #6D2A2F;
+        font-size: 65px;
+        transition: color 0.3s; /* Efek transisi warna */        
+    }
+
+    .button:hover {
+        color: #E8E205; /* Warna teks saat hover */
+    }
+
+    a {
+        text-decoration: none; /* Menghilangkan garis bawah */
+        color: inherit; /* Mengambil warna teks dari induknya */
+    }
+
+    .light{
+        position: absolute;
+        top: 73%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        font-size: xx-large;
+        z-index: 2; /* Menempatkan teks di atas gambar */
+    }
+
+    .lamp{
+        line-height: 0; /* Mengatur ketinggian garis sama dengan tinggi */
+        padding: 5px;
+        width: 30px;
+    }
+
+    .navigation {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column; /* Mengatur susunan vertikal */
+        cursor: pointer;  
+    }
+
+    .nav {
+        margin: 10px; /* Memberikan jarak antara setiap gambar */
+        width: 50px;
+    }
+
+    #astro{
+        position: absolute;
+        top: 65%;
+        left: 29%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: auto;
+        z-index: 2; /* Menempatkan teks di atas gambar */
+    }      
+
+    #astro2{
+        position: absolute;
+        top: 72%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: 400px;
+        z-index: 2; /* Menempatkan teks di atas gambar */
+    }
+
+    #astro3{
+        position: absolute;
+        top: 20%;
+        left: 23%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: auto;
+        z-index: 2; /* Menempatkan teks di atas gambar */
+    } 
+
+</style>
+
+<body>
+    <div class="back">        
+        <img id="sky" class="gambar" src="image/sky.png">
+        <img id="stone" class="gambar" src="image/stone.png">
+        <img id="judul" class="gambar" src="image/tittle.png">        
+    </div>    
+
+    <div class="teks">
+        <h1 class="button">
+            <a href="level.html">
+                PLAY
+            </a>            
+        </h1>
+        <h1 class="button">CREDITS</h1>
+    </div>
+
+    <div class="light">
+        <img class="lamp" src="image/lamp1.png">
+        <img class="lamp" src="image/lamp1.png">
+        <img class="lamp" src="image/lamp2.png">
+        <img class="lamp" src="image/lamp3.png">
+    </div>
+
+    <div class="navigation">
+        <img class="nav" src="image/other.png">
+        <img class="nav" src="image/settings.png">
+        <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
+    </div>
+    
+    <img id="astro" src="image/astronot.png">
+    <img id="astro2" src="image/astronot2.png">
+    <img id="astro3" src="image/astronot3.png">
+</body>
+
+<script>
+    function gantiGambar() {
+        var gambar = document.getElementById('gambar');
+        if (gambar.getAttribute('data-status') === 'on') {
+            gambar.src = 'image/soundoff.png'; // Ganti gambar jika sedang menampilkan gambar1
+            gambar.setAttribute('data-status', 'off');
+        } else {
+            gambar.src = 'image/soundon.png'; // Kembali ke gambar1 jika sedang menampilkan gambar2
+            gambar.setAttribute('data-status', 'on');
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+    });
+</script>
+</html>
