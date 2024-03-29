@@ -15,28 +15,22 @@
 
     body {
         overflow-x: hidden;
-        /* menghilangkan scroll bawah */
         overflow-y: hidden;
-        /* menghilangkan scroll samping */
         font-family: 'Space', sans-serif;
     }
 
-    .back {
+    .background {
         position: relative;
     }
 
     .gambar {
         position: fixed;
-        /* Mengatur posisi absolut untuk gambar */
         top: 0;
-        /* Menempatkan gambar di bagian atas */
         left: 0;
-        /* Menempatkan gambar di bagian kiri */
     }
 
     .gambar:nth-child(22) {
         z-index: 1;
-        /* Mengatur semua gambar agar tumpuk di atas gambar pertama */
     }
 
     .navigation {
@@ -46,36 +40,26 @@
         padding: 10px;
         display: flex;
         flex-direction: column;
-        /* Mengatur susunan vertikal */
         cursor: pointer;
     }
 
     .nav {
         margin: 10px;
-        /* Memberikan jarak antara setiap gambar */
         width: 50px;
     }
 
     #sky {
         width: 100vw;
-        /* Lebar gambar 100% dari lebar viewport */
         height: auto;
-        /* Tinggi disesuaikan agar tidak terdistorsi */
     }
 
     #strip {
         position: absolute;
-        /* Mengatur posisi absolut untuk gambar */
         width: 100vw;
-        /* Lebar gambar 100% dari lebar viewport */
         height: auto;
-        /* Tinggi disesuaikan agar tidak terdistorsi */
         left: 50%;
-        /* Posisi horizontal di tengah */
         transform: translate(-50%, 1800%);
-        /* Pusatkan gambar horizontal dan geser ke bawah 10% */
         bottom: 0;
-        /* Posisi di bagian bawah */
     }
 
     #place {
@@ -91,38 +75,73 @@
         display: flex;
         z-index: 2;
         top: 0;
-        /* Menempatkan gambar di bagian atas */
         left: 0;
-        /* Menempatkan gambar di bagian kiri */
-
         z-index: 1;
     }
 
     .game img {
         max-width: 100%;
-        /* Gambar dalam .game tidak melebihi lebar parent */
         max-height: 100%;
-        /* Gambar dalam .game tidak melebihi tinggi parent */
+    }
+    
+    #pic{
+        position: absolute;
+        top: 50%; 
+        left: 23%; 
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        width: 200px;
+        height: 200px;
+        z-index: 3;
+    }
+
+    #stage{
+        position: absolute;
+        top: 47%; 
+        left: 50%; 
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+    }
+
+    #time{
+        position: absolute;
+        top: 50%; 
+        right: 8%; 
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        width: 200px;
+        height: 200px;
+        z-index: 3;
     }
 </style>
 
 <body>
-    <div class="back">
+    <!-- Hiasan Latar Belakang -->
+    <div class="background">
         <img id="sky" class="gambar" src="image/sky.png">
         <img id="strip" class="gambar" src="image/strip.png">
     </div>
 
+    <!-- Navigasi Kanan -->
     <div class="navigation">
         <img class="nav" src="image/other.png">
         <img class="nav" src="image/settings.png">
         <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
     </div>
 
+    <!-- Tempat Puzzle Acak -->
     <img id="place" src="image/tray.png">
 
     <div class="game">
+        <!-- Contoh Gambar -->
         <img id="pic" src="image/pic.png">
+
+        <!-- Tempat Menyusun Puzzle -->
         <img id="stage" src="image/stage.png">
+
+        <!-- Tempat Waktu -->
         <img id="time" src="image/traytime.png">
     </div>
 

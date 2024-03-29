@@ -18,8 +18,12 @@
         font-family: 'Space', sans-serif;    
     }
 
-    .back{
-        position: relative;
+    #back{
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        padding: 10px;
+        width: 60px;
     }
 
     .gambar {
@@ -148,6 +152,10 @@
         <img class="nav" src="image/settings.png">
         <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
     </div>
+    
+    <a href="start.html">
+        <img id="back" src="image/back.png">
+    </a>
 
     <div class="level">
         <a href="game.html">
