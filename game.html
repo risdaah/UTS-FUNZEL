@@ -16,11 +16,12 @@
     body {
         overflow-x: hidden;
         overflow-y: hidden;
+        width: 100%;
         font-family: 'Space', sans-serif;
     }
 
-    .background {
-        position: relative;
+    .background{
+        align-items: center;
     }
 
     .gambar {
@@ -39,112 +40,173 @@
         right: 20px;
         padding: 10px;
         display: flex;
-        flex-direction: column;
-        cursor: pointer;
+        flex-direction: column; /* Mengatur susunan vertikal */
+        cursor: pointer;  
     }
 
     .nav {
-        margin: 10px;
-        width: 50px;
+        margin: 10px; /* Memberikan jarak antara setiap gambar */
+        width: 60px;
     }
+
+    #back {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px;
+        width: 60px;
+        cursor: pointer; 
+    }
+
 
     #sky {
         width: 100vw;
         height: auto;
     }
 
+    .stack {
+        position: absolute;
+        top: 45%; 
+        left: 50%; 
+        z-index: 1; 
+        background-color: aliceblue;
+    }
+
+    #stage {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        width: 400px;
+        height: 500px;
+        z-index: 2;
+    }
+
+    #board {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -42%);
+        width: 300px;
+        height: 300px;
+        border: 10px solid #755AAF;
+        z-index: 3;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #board img {
+        width: 98px;
+        height: 98px;
+    }
+    
     #strip {
         position: absolute;
         width: 100vw;
         height: auto;
-        left: 50%;
-        transform: translate(-50%, 1800%);
-        bottom: 0;
+        top: 95%;
+    }
+
+    .tray {
+        position: relative;
+        width: auto;
+        margin: 0 auto;
+        top: 550px;
+        display: flex; 
+        justify-content: center; 
     }
 
     #place {
-        position: absolute;
-        width: 70%;
-        left: 15%;
-        height: auto;
-        bottom: 0;
-        z-index: 1;
+        width: 960px !important; 
+        height: 150px;
+        z-index: 4;
     }
 
-    .game {
-        display: flex;
-        z-index: 2;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
-
-    .game img {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    
-    #pic{
+    #pieces {
         position: absolute;
-        top: 50%; 
-        left: 23%; 
-        transform: translate(-50%, -50%);
-        padding: 10px;
-        width: 200px;
-        height: 200px;
-        z-index: 3;
-    }
-
-    #stage{
-        position: absolute;
-        top: 47%; 
+        width: 900px;
+        height: 98px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        z-index: 5;
         left: 50%; 
-        transform: translate(-50%, -50%);
-        padding: 10px;
-        width: 500px;
-        height: 500px;
+        top: 48%; 
+        transform: translate(-50%, -50%);       
+        border: 10px solid #6D50A5;
     }
 
-    #time{
-        position: absolute;
-        top: 50%; 
-        right: 8%; 
-        transform: translate(-50%, -50%);
-        padding: 10px;
-        width: 200px;
-        height: 200px;
-        z-index: 3;
+    #pieces img {
+        width: 98px;
+        height: 98px;
+        margin-left: 2px;
+        border: 0.3px solid plum;
     }
 </style>
 
 <body>
-    <!-- Hiasan Latar Belakang -->
+    <!-- Bungkusan Utama -->
     <div class="background">
         <img id="sky" class="gambar" src="image/sky.png">
         <img id="strip" class="gambar" src="image/strip.png">
+
+        <!-- Bungkusan Button Kembali -->
+        <a href="level.html">
+            <img id="back" src="image/back.png">
+        </a>
+        
+        <!-- Bungkusan Navigasi -->
+        <div class="navigation">            
+            <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
+            <!-- Nanti Diisi Gambar Reload -->
+        </div>
+        
+        <!-- Bungkusan Gambar Asli -->
+        <div class="real">
+            <img id="border" src="image/border.png">
+            <div class="image">
+                <!-- Gambar Asli -->
+            </div>
+        </div>
+
+        <!-- Bungkusan Waktu -->
+        <div class="time">
+            <img src="image/border.png">
+            <div id="textWaktu">
+                <!-- Text Waktu -->
+            </div>
+        </div>
+        
+        <!-- Bungkusan Gambar Acak -->
+        <div class="tray">
+            <img id="place" src="image/tray.png">
+            <div id="pieces">
+                <!-- Gambar Pieces -->
+            </div>
+       </div>  
+
+       <!-- Bungkusan Menyusun Puzzle -->
+       <div class="stack">
+            <img id="stage" src="image/stage.png"> 
+            <div id="board">
+                <!-- Gambar Board -->
+            </div>
+       </div>       
     </div>
-
-    <!-- Navigasi Kanan -->
-    <div class="navigation">
-        <img class="nav" src="image/other.png">
-        <img class="nav" src="image/settings.png">
-        <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
-    </div>
-
-    <!-- Tempat Puzzle Acak -->
-    <img id="place" src="image/tray.png">
-
-    <div class="game">
-        <!-- Contoh Gambar -->
-        <img id="pic" src="image/pic.png">
-
-        <!-- Tempat Menyusun Puzzle -->
-        <img id="stage" src="image/stage.png">
-
-        <!-- Tempat Waktu -->
-        <img id="time" src="image/traytime.png">
-    </div>
-
 </body>
+
+<script>
+    // Ganti Gambar Sound
+    function gantiGambar() {
+        var gambar = document.getElementById('gambar');
+        if (gambar.getAttribute('data-status') === 'on') {
+            gambar.src = 'image/soundoff.png'; 
+            gambar.setAttribute('data-status', 'off');
+        } else {
+            gambar.src = 'image/soundon.png';
+            gambar.setAttribute('data-status', 'on');
+        }
+    }
+</script>
 
 </html>

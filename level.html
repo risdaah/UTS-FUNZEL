@@ -73,7 +73,12 @@
 
     .nav {
         margin: 10px; /* Memberikan jarak antara setiap gambar */
-        width: 50px;
+        width: 60px;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit; 
     }
 
     .level{
@@ -138,35 +143,41 @@
 </style>
 
 <body>
+    <!-- Bungkusan Latar Belakang -->
     <div class="back">        
         <img id="sky" class="gambar" src="image/sky.png">
         <img id="stone" class="gambar" src="image/stone2.png">      
     </div> 
 
+    <!-- Elemen Teks -->
     <div class="teks">
         <h1>CHOOSE THE STAGE</h1>
     </div>
 
-    <div class="navigation">
-        <img class="nav" src="image/other.png">
-        <img class="nav" src="image/settings.png">
+    <!-- Bungkusan Navigasi -->
+    <div class="navigation">            
         <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
+        <!-- Nanti Diisi Gambar Reload -->
     </div>
     
-    <a href="start.html">
+    <!-- Bungkusan Button Kembali -->
+    <a href="level.html">
         <img id="back" src="image/back.png">
     </a>
 
+
+    <!-- Bungkusan Level 1-5 -->
     <div class="level">
         <a href="game.html">
             <img class="lv" src="image/lv1.png">
         </a>
-        <img id="lv2" class="lv" src="image/knclv2.png" data-status="on" onclick="gantiGambar()">
+        <img class="lv" src="image/knclv2.png">
         <img class="lv" src="image/knclv3.png">
         <img class="lv" src="image/knclv4.png">
         <img class="lv" src="image/knclv5.png">
     </div>
 
+    <!-- Bungkusan Level 6-10 -->
     <div class="level2">
         <img class="lv" src="image/knclv6.png">
         <img class="lv" src="image/knclv7.png">
@@ -175,6 +186,7 @@
         <img class="lv" src="image/knclv10.png">
     </div>
 
+    <!-- Bungkusan Level 11-15 -->
     <div class="level3">
         <img class="lv" src="image/knclv11.png">
         <img class="lv" src="image/knclv12.png">
@@ -183,11 +195,13 @@
         <img class="lv" src="image/knclv15.png">
     </div>
 
+    <!-- Elemen Astronot -->
     <img id="astro5" src="image/astronot5.png">
     <img id="astro6" src="image/astronot6.png">
 </body>
 
 <script>
+    // Ganti Gambar Sound
     function gantiGambar() {
         var gambar = document.getElementById('gambar');
         if (gambar.getAttribute('data-status') === 'on') {
