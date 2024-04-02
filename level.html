@@ -13,8 +13,8 @@
     }
 
     body{
-        overflow-x: hidden; /* menghilangkan scroll bawah */
-        overflow-y: hidden; /* menghilangkan scroll samping */    
+        overflow-x: hidden; 
+        overflow-y: hidden;    
         font-family: 'Space', sans-serif;    
     }
 
@@ -27,27 +27,27 @@
     }
 
     .gambar {
-        position: fixed; /* Mengatur posisi absolut untuk gambar */
-        top: 0; /* Menempatkan gambar di bagian atas */
-        left: 0; /* Menempatkan gambar di bagian kiri */
+        position: fixed; 
+        top: 0;
+        left: 0;
     }
 
     .gambar:nth-child(22) {
-        z-index: 1; /* Mengatur semua gambar agar tumpuk di atas gambar pertama */
+        z-index: 1;
     }
 
     #sky{
-        width: 100vw; /* Lebar gambar 100% dari lebar viewport */
-        height: auto; /* Tinggi disesuaikan agar tidak terdistorsi */
+        width: 100vw; 
+        height: auto; 
     }
 
     #stone {
-        position: absolute; /* Mengatur posisi absolut untuk gambar */
-        width: 100vw; /* Lebar gambar 100% dari lebar viewport */
-        height: auto; /* Tinggi disesuaikan agar tidak terdistorsi */
-        left: 50%; /* Posisi horizontal di tengah */
-        transform: translate(-50%, 180%); /* Pusatkan gambar horizontal dan geser ke bawah 10% */
-        bottom: 0; /* Posisi di bagian bawah */        
+        position: absolute; 
+        width: 100vw;
+        height: auto; 
+        left: 50%; 
+        transform: translate(-50%, 180%);
+        bottom: 0;      
     }  
 
     .teks{
@@ -58,7 +58,7 @@
         text-align: center;   
         font-size: xx-large;  
         color: #E8E205;   
-        z-index: 2; /* Menempatkan teks di atas gambar */
+        z-index: 2;
     }
 
     .navigation {
@@ -67,12 +67,12 @@
         right: 20px;
         padding: 10px;
         display: flex;
-        flex-direction: column; /* Mengatur susunan vertikal */
+        flex-direction: column; 
         cursor: pointer;  
     }
 
     .nav {
-        margin: 10px; /* Memberikan jarak antara setiap gambar */
+        margin: 10px;
         width: 60px;
     }
 
@@ -83,39 +83,39 @@
 
     .level{
         position: absolute;
-        top: 35%; /* Posisi di tengah vertikal */
-        left: 50%; /* Posisi di tengah horizontal */
+        top: 35%;  
+        left: 50%;
         transform: translate(-50%, -50%);
         padding: 10px;
         width: auto;
         height: auto;
-        z-index: 3; /* Menempatkan .level di atas gambar lainnya */
+        z-index: 3;
     }
 
     .level2{
         position: absolute;
-        top: 55%; /* Posisi di tengah vertikal */
-        left: 50%; /* Posisi di tengah horizontal */
+        top: 55%; 
+        left: 50%;
         transform: translate(-50%, -50%);
         padding: 10px;
         width: auto;
         height: auto;
-        z-index: 3; /* Menempatkan .level di atas gambar lainnya */
+        z-index: 3; 
     }
 
     .level3{
         position: absolute;
-        top: 75%; /* Posisi di tengah vertikal */
-        left: 50%; /* Posisi di tengah horizontal */
+        top: 75%; 
+        left: 50%; 
         transform: translate(-50%, -50%);
         padding: 10px;
         width: auto;
         height: auto;
-        z-index: 3; /* Menempatkan .level di atas gambar lainnya */
+        z-index: 3; 
     }
 
     .lv{        
-        width: 100px;
+        width: 80px;
         margin: 20px;        
         cursor: pointer;  
     }
@@ -127,7 +127,7 @@
         transform: translate(-50%, -50%);
         width: 200px;
         height: auto;
-        z-index: 2; /* Menempatkan teks di atas gambar */
+        z-index: 2; 
     } 
 
     #astro6{
@@ -137,9 +137,8 @@
         transform: translate(-50%, -50%);
         width: auto;
         height: 400px;
-        z-index: 2; /* Menempatkan teks di atas gambar */
+        z-index: 2; 
     }
-
 </style>
 
 <body>
@@ -151,7 +150,7 @@
 
     <!-- Elemen Teks -->
     <div class="teks">
-        <h1>CHOOSE THE STAGE</h1>
+        <h1>START THE LEVEL</h1>
     </div>
 
     <!-- Bungkusan Navigasi -->
@@ -161,7 +160,7 @@
     </div>
     
     <!-- Bungkusan Button Kembali -->
-    <a href="level.html">
+    <a href="start.html">
         <img id="back" src="image/back.png">
     </a>
 

@@ -16,12 +16,6 @@
         overflow-x: hidden; 
         overflow-y: hidden;  
         font-family: 'Space', sans-serif;
-        opacity: 0.5; 
-        transition: opacity 0.2s linear; 
-    }
-
-    body.loaded {
-        opacity: 1; 
     }
 
     .back{
@@ -54,12 +48,12 @@
 
     #judul{
         position: absolute;
-        width: 40vw; 
-        left: 50%; 
+        width: 35vw; 
+        left: 52%; 
         transform: translateX(-50%); 
         bottom: 10vh; 
         align-items: center; 
-        margin-top: 100px;
+        margin-top: 150px;
     }
 
     .teks{
@@ -90,7 +84,7 @@
 
     .light{
         position: absolute;
-        top: 73%;
+        top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -150,6 +144,7 @@
         z-index: 2; 
     } 
 
+
 </style>
 
 <body>
@@ -167,7 +162,11 @@
                 PLAY
             </a>            
         </h1>
-        <h1 class="button">CREDITS</h1>
+        <h1 class="button">
+            <a href="credits.html">
+                CREDITS
+            </a>            
+        </h1>
     </div>
 
     <!-- Elemen Bintik 4-->
@@ -202,10 +201,5 @@
             gambar.setAttribute('data-status', 'on');
         }
     }
-
-    // Load Halaman Start
-    document.addEventListener("DOMContentLoaded", function() {
-    document.body.classList.add("loaded");
-    });
 </script>
 </html>

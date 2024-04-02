@@ -1,1 +1,128 @@
-<!-- Credit Nyusul -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNZLE | Let's Start A Journey</title>
+</head>
+
+<style>
+    @font-face {
+        font-family: 'Space';
+        src: url('fonts/spacerangerbold.ttf') format('truetype');
+    }
+
+    body{
+        overflow-x: hidden; 
+        overflow-y: hidden;  
+        font-family: 'Space', sans-serif;
+    }
+
+    .back{
+        position: relative;
+    }
+
+    .gambar {
+        position: fixed; 
+        top: 0; 
+        left: 0;
+    }
+
+    .gambar:nth-child(3) {
+        z-index: 1; 
+    }
+
+    #sky{
+        width: 100vw; 
+        height: auto; 
+    }
+
+    #stone {
+        position: absolute; 
+        width: 100vw;
+        height: auto; 
+        left: 50%; 
+        transform: translate(-50%, 10%);
+        bottom: 0;     
+    }
+
+    .navigation {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column; /* Mengatur susunan vertikal */
+        cursor: pointer;  
+    }
+
+    .nav {
+        margin: 10px; /* Memberikan jarak antara setiap gambar */
+        width: 60px;
+    }
+
+    #back {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px;
+        width: 60px;
+        cursor: pointer; 
+    }
+
+    .tulisan{
+        position: absolute;
+        width: auto;
+        height: auto;
+        z-index: 3;
+    }
+
+    .board {
+        position: absolute;
+        width: 50%;
+        justify-content: center;
+        z-index: 4;
+        margin: 20px;
+    }
+</style>
+
+<body>
+    <!-- Bungkusan Latar Belakang -->
+    <div class="back">        
+        <img id="sky" class="gambar" src="image/sky.png">
+        <img id="stone" class="gambar" src="image/stone.png">       
+    </div>  
+    
+    <!-- Bungkusan Button Kembali -->
+    <a href="start.html">
+        <img id="back" src="image/back.png">
+    </a>
+    
+    <!-- Bungkusan Navigasi -->
+    <div class="navigation">            
+        <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
+    </div>
+
+    <!-- Bungkusan Tulisan -->
+    <div class="tulisan">
+        <div class="board">
+            <img id="papan" src="image-puzzle/lv-1/10.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+<script>
+    // Ganti Gambar Sound
+    function gantiGambar() {
+        var gambar = document.getElementById('gambar');
+        if (gambar.getAttribute('data-status') === 'on') {
+            gambar.src = 'image/soundoff.png'; 
+            gambar.setAttribute('data-status', 'off');
+        } else {
+            gambar.src = 'image/soundon.png';
+            gambar.setAttribute('data-status', 'on');
+        }
+    }
+</script>
+
+</html>

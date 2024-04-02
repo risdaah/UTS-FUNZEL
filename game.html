@@ -58,7 +58,6 @@
         cursor: pointer; 
     }
 
-
     #sky {
         width: 100vw;
         height: auto;
@@ -66,7 +65,7 @@
 
     .stack {
         position: absolute;
-        top: 45%; 
+        top: 40%; 
         left: 50%; 
         z-index: 1; 
         background-color: aliceblue;
@@ -74,12 +73,11 @@
 
     #stage {
         position: absolute;
-        top: 40%;
+        top: 30%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 10px;
-        width: 400px;
-        height: 500px;
+        width: 350px;
+        height: 400px;
         z-index: 2;
     }
 
@@ -87,20 +85,24 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -42%);
-        width: 300px;
-        height: 300px;
-        border: 10px solid #755AAF;
+        justify-content: center;
+        margin-top: 20px;
+        transform: translate(-50%, -50%);
+        width: 250px;
+        height: 250px;
+        border: 15px solid #755AAF;
         z-index: 3;
         display: flex;
         flex-wrap: wrap;
     }
 
     #board img {
-        width: 98px;
-        height: 98px;
+        width: 80px;
+        height: 80px;
+        border: 1px solid purple;
+        z-index: 4;
     }
-    
+
     #strip {
         position: absolute;
         width: 100vw;
@@ -109,39 +111,91 @@
     }
 
     .tray {
-        position: relative;
-        width: auto;
-        margin: 0 auto;
-        top: 550px;
-        display: flex; 
-        justify-content: center; 
-    }
-
-    #place {
-        width: 960px !important; 
-        height: 150px;
-        z-index: 4;
+        position: absolute;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 80%;
+        display: flex;
+        justify-content: center;    
+        z-index: 5;
     }
 
     #pieces {
         position: absolute;
-        width: 900px;
-        height: 98px;
+        width: 750px;
+        height: 80px;
         display: inline-flex;
         flex-wrap: wrap;
         z-index: 5;
-        left: 50%; 
-        top: 48%; 
-        transform: translate(-50%, -50%);       
+        left: 50%;
+        justify-content: center;
+        top: 40%;
+        transform: translate(-50%, -50%);
         border: 10px solid #6D50A5;
+        background-color: white;
     }
 
     #pieces img {
-        width: 98px;
-        height: 98px;
+        width: 80px;
+        height: 80px;
         margin-left: 2px;
-        border: 0.3px solid plum;
     }
+
+    .real-image {
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        z-index: 6;
+    }
+
+    #border {
+        width: 120px;
+        position: absolute;
+        top: 0;
+        left: 0;    
+        z-index: 1;
+    }
+
+    #asli {
+        width: 100px;
+        position: absolute;
+        top: 10px;
+        left: 10px; /* Agar gambar asli berada di atas border */
+    }
+
+
+    .time {
+        position: absolute;
+        top: 40%; /* Sesuaikan dengan posisi yang diinginkan */
+        right: 33%; /* Sesuaikan dengan posisi yang diinginkan */
+        z-index: 6; /* Pastikan z-index lebih tinggi dari elemen lainnya */
+    }
+
+    #waktu {
+        width: 120px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1; /* Atur z-index agar berada di bawah judulWaktu dan teksWaktu */
+    }
+
+    #judulWaktu {
+        position: absolute;
+        font-size: 20px; 
+        color: #E8E205;   
+        top: 10px;
+        left: 25px;
+    }
+
+    #teksWaktu {
+        position: absolute;
+        font-size: 20px; 
+        color: #E8E205;   
+        top: 50px;
+        left: 50px;
+    }
+
 </style>
 
 <body>
@@ -158,40 +212,54 @@
         <!-- Bungkusan Navigasi -->
         <div class="navigation">            
             <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
+            <img src="image/restart.png" class="nav">
             <!-- Nanti Diisi Gambar Reload -->
         </div>
         
         <!-- Bungkusan Gambar Asli -->
-        <div class="real">
+        <div class="real-image">
             <img id="border" src="image/border.png">
-            <div class="image">
-                <!-- Gambar Asli -->
+            <img id="asli" src="image-puzzle/lv-1/10.jpg" alt="" srcset="">               
             </div>
         </div>
 
         <!-- Bungkusan Waktu -->
         <div class="time">
-            <img src="image/border.png">
-            <div id="textWaktu">
-                <!-- Text Waktu -->
-            </div>
+            <img id="waktu" src="image/border.png">
+            <p id="judulWaktu">TURNS</p>
+            <p id="teksWaktu">0</p>
         </div>
+
+         <!-- Bungkusan Menyusun Puzzle -->
+        <div class="stack">
+            <img id="stage" src="image/stage.png"> 
+            <div id="board">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+            </div>
+        </div>   
         
         <!-- Bungkusan Gambar Acak -->
         <div class="tray">
-            <img id="place" src="image/tray.png">
             <div id="pieces">
-                <!-- Gambar Pieces -->
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
+                <img src="image-puzzle/lv-1/1.jpg" alt="" srcset="">
             </div>
-       </div>  
-
-       <!-- Bungkusan Menyusun Puzzle -->
-       <div class="stack">
-            <img id="stage" src="image/stage.png"> 
-            <div id="board">
-                <!-- Gambar Board -->
-            </div>
-       </div>       
+       </div>            
     </div>
 </body>
 
