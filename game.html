@@ -9,8 +9,8 @@
 
 <style>
     @font-face {
-        font-family: 'Space';
-        src: url('fonts/spacerangerbold.ttf') format('truetype');
+        font-family: 'Irish';
+        src: url('fonts/irishgrover.ttf') format('truetype');
     }
 
     body {
@@ -161,15 +161,15 @@
         width: 100px;
         position: absolute;
         top: 10px;
-        left: 10px; /* Agar gambar asli berada di atas border */
+        left: 10px;
     }
 
 
     .time {
         position: absolute;
-        top: 40%; /* Sesuaikan dengan posisi yang diinginkan */
-        right: 33%; /* Sesuaikan dengan posisi yang diinginkan */
-        z-index: 6; /* Pastikan z-index lebih tinggi dari elemen lainnya */
+        top: 40%; 
+        right: 33%;
+        z-index: 6; 
     }
 
     #waktu {
@@ -177,7 +177,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1; /* Atur z-index agar berada di bawah judulWaktu dan teksWaktu */
+        z-index: 1; 
     }
 
     #judulWaktu {
@@ -185,7 +185,8 @@
         font-size: 20px; 
         color: #E8E205;   
         top: 10px;
-        left: 25px;
+        left: 28px;
+        font-family: 'Irish';
     }
 
     #teksWaktu {
@@ -193,7 +194,8 @@
         font-size: 20px; 
         color: #E8E205;   
         top: 50px;
-        left: 50px;
+        left: 55px;
+        font-family: 'Irish';
     }
 
 </style>
@@ -213,7 +215,6 @@
         <div class="navigation">            
             <img id="gambar" class="nav" src="image/soundon.png" data-status="on" onclick="gantiGambar()">
             <img src="image/restart.png" class="nav">
-            <!-- Nanti Diisi Gambar Reload -->
         </div>
         
         <!-- Bungkusan Gambar Asli -->

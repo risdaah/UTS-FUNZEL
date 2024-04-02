@@ -12,6 +12,11 @@
         src: url('fonts/spacerangerbold.ttf') format('truetype');
     }
 
+    @font-face {
+        font-family: 'Irish';
+        src: url('fonts/irishgrover.ttf') format('truetype');
+    }
+
     body{
         overflow-x: hidden; 
         overflow-y: hidden;  
@@ -70,8 +75,11 @@
         cursor: pointer; 
     }
 
-    .tulisan{
+    .kredit {
         position: absolute;
+        top: 15%;
+        left: 28%;
+        transform: translate(-50%, -50%); 
         width: auto;
         height: auto;
         z-index: 3;
@@ -79,11 +87,38 @@
 
     .board {
         position: absolute;
-        width: 50%;
-        justify-content: center;
+        width: 100%;
         z-index: 4;
-        margin: 20px;
     }
+
+    .teks {
+        position: absolute;
+        top: 5%;
+        left: -25px;
+        width: 700px;
+        z-index: 1;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    }
+
+    h1{
+        font-size: 50px;
+        color: #E8E205;
+    }  
+    
+    h2{
+        font-size: 30px;
+        color: #E8E205;
+        font-family: 'Irish';
+    }
+
+    p{
+        font-size: 20px;
+        color: white;
+        font-family: 'Irish';
+    }
+
+
 </style>
 
 <body>
@@ -104,9 +139,33 @@
     </div>
 
     <!-- Bungkusan Tulisan -->
-    <div class="tulisan">
+    <div class="kredit">
         <div class="board">
-            <img id="papan" src="image-puzzle/lv-1/10.jpg" alt="">
+            <img id="papan" src="image/credit.png" alt="">
+            <div class="teks">
+                <h1>CREDITS</h1>
+                <h2>
+                    Created By
+                </h2>
+                <p>
+                    Leader (Back End) : Risda Rahmawati Harsono (22082010040)
+                </p>
+                <p>
+                    Front End : Talia Aprianti (22082010035)
+                </p>
+                <p>
+                    Designer : Nanda Kharisma Safitri (22082010036)
+                </p>
+                <h2>
+                    Other
+                </h2>
+                <p>
+                    Music Source : Youtube
+                </p>
+                <p>
+                    Art Source : Freepik
+                </p>
+            </div>            
         </div>
     </div>
 </body>
